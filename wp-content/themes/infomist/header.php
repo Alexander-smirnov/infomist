@@ -23,6 +23,7 @@
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
     <div class="wrapper">
+        <?php dynamic_sidebar( 'top-header' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/logo.png" alt="Logo"/></a></div>
@@ -46,23 +47,23 @@
             </li>
         </ul>
         <script type="text/javascript">
-            var date = new Date(); // Получаем текущие дату и время
-            var h = date.getHours(); // Получаем текущий час
+            var date = new Date();
+            var h = date.getHours();
             var templateUrl = '<?= get_bloginfo("template_url"); ?>';
             if (h >= 17 && h <= 19) {
                 $('#masthead').css("background", "url('"+templateUrl+"/"+"images/17-20.jpg') no-repeat").css("background-size", "cover");
-            }
-            if (h >= 20 && h <= 3) {
+            } else {
+            if ((h >= 20 && h <= 23) || (h >= 0 && h <= 3)) {
                 $('#masthead').css("background", "url('"+templateUrl+"/"+"images/20-4.jpg') no-repeat").css("background-size", "cover");
-            }
+            }else {
             if (h >= 4 && h <= 7) {
                 $('#masthead').css("background", "url('"+templateUrl+"/"+"images/4-7.jpg') no-repeat").css("background-size", "cover");
-            }
+            } else {
             if (h >= 8 && h <= 16) {
                 $('#masthead').css("background", "url('"+templateUrl+"/"+"images/7-17.jpg') no-repeat").css("background-size", "cover");
-            }
+            }}}}
         </script>
-
+        <?php dynamic_sidebar( 'bottom-header' ); ?>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

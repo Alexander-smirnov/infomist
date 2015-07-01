@@ -95,9 +95,19 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+.top-header {
+  max-width: 730px;
+  width: 100%;
+  margin: 0 auto; }
+  .top-header img {
+    width: 100%;
+    height: auto; }
+  .top-header h2 {
+    text-align: center; }
+
 #masthead {
   min-height: 180px;
-  background: url("images/most1.jpg") no-repeat;
+  background: url("images/4-7.jpg") no-repeat;
   background-size: cover;
   position: relative; }
   #masthead .site-title img {
@@ -220,6 +230,14 @@ html {
 
 ul.all-news {
   overflow: hidden; }
+
+.single-news .site-main > h1 {
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 20px; }
+
+.single-news .posts-info > .author {
+  margin-top: 0 !important; }
 
 ul.all-news .single-news {
   background-color: #D8F3F2;
@@ -401,25 +419,6 @@ ul.all-news .single-news > a:first-child {
       color: #333333;
       font-size: 16px;
       line-height: 22px; }
-  .interview .related_post.wp_rp li {
-    width: 204px !important;
-    position: relative;
-    margin-right: 6px !important; }
-    .interview .related_post.wp_rp li img {
-      width: 204px !important;
-      height: auto !important; }
-  .interview .wp_rp_content .related_post_title {
-    margin: 30px 0 !important; }
-  .interview .wp_rp_title {
-    display: none !important; }
-  .interview .related_post.wp_rp li:hover .wp_rp_title {
-    display: block !important;
-    position: absolute !important;
-    top: 10px;
-    text-align: center;
-    color: #FFF;
-    width: 100%;
-    font-size: 16px !important; }
   .interview .interview-list {
     text-align: center; }
     .interview .interview-list li {
@@ -456,6 +455,29 @@ ul.all-news .single-news > a:first-child {
       border-width: 3px; }
       .interview .interview-list li:hover h2 span {
         color: #32ADAA; }
+
+.related_post.wp_rp li {
+  width: 204px !important;
+  position: relative;
+  margin-right: 6px !important; }
+  .related_post.wp_rp li img {
+    width: 204px !important;
+    height: auto !important; }
+
+.wp_rp_content .related_post_title {
+  margin: 30px 0 !important; }
+
+.wp_rp_title {
+  display: none !important; }
+
+.related_post.wp_rp li:hover .wp_rp_title {
+  display: block !important;
+  position: absolute !important;
+  top: 10px;
+  text-align: center;
+  color: #FFF;
+  width: 100%;
+  font-size: 16px !important; }
 
 .nav-links {
   margin: 25px auto; }
@@ -632,7 +654,7 @@ ul.all-news .single-news > a:first-child {
       width: 100%;
       background: url("images/search.png") no-repeat 6px center; }
   #secondary .widget_text {
-    margin-bottom: 20px; }
+    margin-bottom: 10px; }
     #secondary .widget_text h1 {
       text-align: center;
       padding: 15px 0;
@@ -965,16 +987,12 @@ footer.site-footer {
 .other-author {
   padding-top: 0 !important; }
 
-.home #secondary .slide {
-  text-align: center;
-  padding: 15px 0; }
-.home .widget_search {
-  display: none; }
 .home .left-wrapp {
   overflow: hidden;
   float: left; }
   .home .left-wrapp .content-area {
-    max-width: 371px; }
+    max-width: 386px;
+    margin-right: 0 !important; }
 .home .left-wrapp #secondary2 {
   width: 286px;
   margin: 0; }
@@ -1049,5 +1067,94 @@ footer.site-footer {
     font-weight: normal; }
   .home .perl-wrapp .menu-event-wrapp .thumb, .home .top-news-wrapp .menu-event-wrapp .thumb {
     overflow: hidden; }
+
+.home #secondary {
+  margin-top: 0; }
+  .home #secondary .slide {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #32ADAA;
+    font-weight: normal;
+    font-size: 18px;
+    text-transform: uppercase; }
+    .home #secondary .slide a {
+      color: #FFF; }
+  .home #secondary .week img {
+    width: 100%;
+    height: auto; }
+  .home #secondary .week-wrapp {
+    position: relative; }
+    .home #secondary .week-wrapp .week-thema {
+      position: absolute;
+      bottom: 3px;
+      background-color: #000;
+      opacity: 0.6;
+      width: 100%;
+      text-align: center; }
+      .home #secondary .week-wrapp .week-thema p {
+        opacity: 1;
+        color: #FFF;
+        padding: 15px 0; }
+
+.flex-control-nav {
+  position: relative !important;
+  bottom: 0 !important; }
+  .flex-control-nav li {
+    width: 100%;
+    background-color: #333;
+    margin: 1px 0 !important; }
+    .flex-control-nav li h2 {
+      margin-bottom: 0;
+      color: #FFF;
+      font-size: 14px;
+      padding: 15px 0; }
+  .flex-control-nav li.flex-active, .flex-control-nav li:hover {
+    background-color: #FFF;
+    border: 1px solid #333; }
+    .flex-control-nav li.flex-active h2, .flex-control-nav li:hover h2 {
+      color: #111;
+      padding: 14px 0;
+      font-weight: bold; }
+
+.flex-control-paging {
+  display: none; }
+
+ul.slides > li {
+  margin-bottom: 0 !important; }
+  ul.slides > li img {
+    margin-bottom: -4px; }
+
+.slides {
+  margin-bottom: 0 !important; }
+
+.flex-active-slide img {
+  width: 386px;
+  height: 287px; }
+
+.flex-active-slide {
+  margin-top: 0 !important; }
+
+.hot-message {
+  overflow: hidden;
+  padding: 10px 0;
+  background-color: #333;
+  opacity: 0.75; }
+  .hot-message .textwidget {
+    width: 290px;
+    float: right;
+    color: #FFF;
+    font-size: 14px;
+    text-align: center; }
+    .hot-message .textwidget span {
+      color: #32ADAA;
+      font-size: 20px; }
+  .hot-message .hot-phone {
+    overflow: hidden;
+    width: 100%;
+    max-width: 670px;
+    float: left;
+    color: #FFF;
+    font-size: 12px;
+    text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

@@ -127,6 +127,24 @@ function infomist_widgets_init() {
         'before_title'  => '<h1 class="widget-title">',
         'after_title'   => '</h1>',
     ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Над шапкой сайта', 'infomist' ),
+        'id'            => 'top-header',
+        'description'   => '',
+        'before_widget' => '<div id="%1$s" class="widget %2$s top-header">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Под мостом', 'infomist' ),
+        'id'            => 'bottom-header',
+        'description'   => '',
+        'before_widget' => '<div id="%1$s" class="widget %2$s hot-message">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<div class="hot-phone">',
+        'after_title'   => '</div>',
+    ) );
 }
 add_action( 'widgets_init', 'infomist_widgets_init' );
 
@@ -393,6 +411,14 @@ function latest_posts_by_author($array) {
 }
 add_shortcode('latestbyauthor', 'latest_posts_by_author');
 
+function infomist_theme_scripts() {
+    wp_enqueue_style('flexslider', get_template_directory_uri() . '/js/flexslider.css');
+    wp_enqueue_script('flexslider-init', get_template_directory_uri() . '/js/flexslider-init.js', array('jquery'), null, false);
+    wp_enqueue_script('flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array('jquery'), null, true);
+}
+
+add_action('wp_enqueue_scripts', 'infomist_theme_scripts');
+
 function subpage_peek() {
     global $post;
     $args = array(
@@ -426,4 +452,77 @@ function my_widget_execute_php($text) {
     }
     return $text;
 }
+function news() {
+    $outputs = '';
+$outputs = '<h1><a href="'. get_the_permalink(30).'">Новини</a></h1>';
+$wp_query = null;
+$wp_query = new WP_Query();
+$wp_query->query("cat=3,-9,-10,-6,-15,-5"."&showposts=10");
+$outputs .= '<ul class="all-news">';
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= '<li class="single-news">';
 
+                $today = date("j");
+                $post_date = get_the_time("d");
+                $time_post = get_the_time("G:i");
+            if ($today == $post_date) {
+                $outputs .= '<div class="time">'.get_the_time("G:i").'</div>';
+            } else {
+                $outputs .= '<div class="time">'.get_the_time("d.m").'</div>';
+            }
+            $outputs .= '<p><a href="'.get_permalink().'">'.get_the_title().'</a></p>';
+        $outputs .= '</li>';
+    endwhile;
+$outputs .= '</ul>';
+wp_reset_query();
+    echo $outputs;
+    return $outputs;
+}
+
+function top_news () {
+    $outputs = '';
+    $outputs .= '<h1><a href="'. get_the_permalink(32).'">Топ-новини</a></h1>';
+    $wp_query = null;
+    $wp_query = new WP_Query();
+    $wp_query->query("cat=5"."&showposts=4");
+    $outputs .= '<ul class="top-news">';
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= '<li class="single-news">';
+
+        $outputs .= '<div class="thumb"><a href="'.get_permalink().'">'.get_the_post_thumbnail().'</a></div>';
+        $outputs .= '<p><span class="post-info">'.get_the_time('d.m.Y  |  G:i').'</span><a href="'.get_permalink().'">'. get_the_title().'</a></p>';
+        $outputs .= '</li>';
+    endwhile;
+    $outputs .= '</ul>';
+    wp_reset_query();
+    echo $outputs;
+    return $outputs;
+}
+function week() {
+$outputs = '';
+$outputs .= '<h2 class="slide"><a href="'.get_permalink(179).'">ТЕМА ТИЖНЯ</a></h2>';
+    $outputs .= '<div class="week-wrapp">';
+    $wp_query = null;
+    $wp_query = new WP_Query();
+    $wp_query->query('cat=15'.'&showposts=1');
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= '<div class="week">';
+        $outputs .= '<a href="'.get_permalink().'">'.get_the_post_thumbnail().'</a>';
+        $outputs .= '</div>';
+    endwhile;
+    echo $outputs;
+    $outputs = '';
+    wp_reset_query();
+    $outputs .= '<div class="week-thema">';
+        $wp_query = null;
+        $wp_query = new WP_Query( 'page_id=179' );
+        while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+            $outputs .= '<p>'.get_the_content().'</p>';
+        endwhile;
+        wp_reset_query();
+
+$outputs .= '</div>';
+$outputs .= '</div>';
+      echo $outputs;
+    return $outputs;
+}

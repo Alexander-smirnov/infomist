@@ -9,21 +9,39 @@ get_header(); ?>
     </div>
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
-            <div class="slider">
-                <img src="<?php echo get_stylesheet_directory_uri() ?>/images/slide-center.jpg" alt="temp slider"/>
-                <ul class="slide-list">
-                    <li>
-                        <a href="#">Lorem ipsum dolor sit amet consectetuer</a>
-                    </li>
-                    <li>
-                        <a href="#">Lorem ipsum dolor sit amet consectetuer</a>
-                    </li>
-                    <li>
-                        <a href="#">Lorem ipsum dolor sit amet consectetuer</a>
-                    </li>
-                </ul>
-                <?php wp_reset_query(); ?>
-            </div>
+            <?php
+            $home_sl_query = new WP_Query();
+            $home_sl_query ->query('cat=16'.'&showposts=3');
+            ?>
+            <?php if ($home_sl_query->have_posts()) : ?>
+                <?php $id_count = 0; ?>
+                <div class="main-flexslider-container">
+                    <div class="main-sl-flexslider">
+                        <ul class="slides">
+                            <?php while ($home_sl_query->have_posts()) : $home_sl_query->the_post(); ?>
+                                <li>
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php the_post_thumbnail(); ?>
+                                    </a>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    </div>
+                    <div class="flexslider-controls">
+                        <ol class="flex-control-nav">
+                            <?php while ($home_sl_query->have_posts()) : $home_sl_query->the_post(); ?>
+                                <li data-id="<?php echo $id_count; ?>">
+                                    <h2 class="slider-title"><?php the_title(); ?></h2>
+
+<!--                                    <p>--><?php //the_field('home_sl_descr'); ?><!--</p>-->
+                                </li>
+                                <?php $id_count++; ?>
+                            <?php endwhile; ?>
+                        </ol>
+                    </div>
+                </div>
+                <?php wp_reset_postdata(); ?>
+            <?php endif; ?>
             <div class="perl-wrapp">
                 <h2>Перли тижня</h2>
                     <?php
@@ -94,8 +112,6 @@ get_header(); ?>
 
 </div>
 <div id="secondary" class="widget-area sidebar" role="complementary">
-    <h2 class="slide">ТЕМА ТИЖНЯ</h2>
-    <img src="<?php echo get_stylesheet_directory_uri()?>/images/slide-top.jpg" alt="temp slider"/>
     <?php dynamic_sidebar( 'sidebar-1' ); ?>
 </div>
 <?php get_footer(); ?>
