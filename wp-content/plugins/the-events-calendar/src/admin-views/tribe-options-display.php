@@ -153,7 +153,7 @@ $displayTab = array(
 				'type'            => 'text',
 				'label'           => __( 'Date time separator', 'tribe-events-calendar' ),
 				'tooltip'         => __( 'Enter the separator that will be placed between the date and time, when both are shown.', 'tribe-events-calendar' ),
-				'default'         => ' @ ',
+				'default'         => ' о ',
 				'size'            => 'small',
 				'validation_type' => 'html',
 			),

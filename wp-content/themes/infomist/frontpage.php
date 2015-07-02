@@ -80,32 +80,20 @@ get_header(); ?>
                 </ul>
             </div>
             <div class="top-news-wrapp">
-                <h2>Навігатор подій</h2>
-                        <?php
-                        $args = array(
-                            'post_parent' => 103,
-                            'post_type' => 'page',
-                            'paged' => $paged,
-                        );
-                        $subpages = new WP_query($args);
-                        if ($subpages->have_posts()) :
-                            $output = '<ul class="menu-event-wrapp">';
-
-                            while ($subpages->have_posts()) : $subpages->the_post();
-                                $output .= '<li>
-                                <div class="thumb">
-                                    <a href="'.get_permalink().'">'.get_the_post_thumbnail().'</a>
-                                    <h3><a href="'.get_permalink().'">'.get_the_title().'</a></h3>
-                                </div>
-
-                                </li>';
-                            endwhile;
-                            $output .= '</ul>';
-                        endif;
-                        echo $output;
-                        wp_reset_postdata();
-                        ?>
+                <h2><a href="<?php echo get_home_url().'/events' ?>">Навігатор подій</a></h2>
+                <?php
+                $title = sprintf(
+                    __( '%1$s %2$s', 'tribe-events-calendar' ),
+                    $events_label_plural,
+                    date_i18n( tribe_get_option( 'monthAndYearFormat', 'F Y' ), strtotime( tribe_get_month_view_date() ) )
+                );?>
+                <h5 class="today"><?php echo $title ?></h5>
+                 <?php tribe_show_month(); ?>
+                <?php  ?>
             </div>
+<!--            <div class="event-calendar">-->
+<!--                --><?php //tribe_show_month(); ?>
+<!--            </div>-->
         </main><!-- #main -->
     </div><!-- #primary -->
 

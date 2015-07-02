@@ -10,7 +10,7 @@ get_header(); ?>
 <div class="left-wrapp">
 
     <div id="secondary2" class="widget-area sidebar" role="complementary">
-        <?php dynamic_sidebar( 'sidebar-3' ); ?>
+        <?php dynamic_sidebar( 'sidebar-5' ); ?>
     </div>
     <div id="primary" class="content-area two-side">
         <main id="main" class="site-main single-news single-face" role="main">
@@ -45,6 +45,6 @@ get_header(); ?>
 </div>
 
 <div id="secondary" class="widget-area sidebar" role="complementary">
-    <?php dynamic_sidebar( 'sidebar-1' ); ?>
+    <?php dynamic_sidebar( 'sidebar-4' ); ?>
 </div>
 <?php get_footer(); ?>

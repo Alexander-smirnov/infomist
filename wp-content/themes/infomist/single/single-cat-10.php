@@ -22,9 +22,9 @@ get_header(); ?>
                 $whois = get_post_custom_values('whois');
                 $name = get_post_custom_values('name');
             ?>
-            <h2><?php echo $name[0] ?></h2>
-            <h4><?php echo $whois[0] ?></h4>
-            <h1><?php the_title() ?></h1>
+            <h2><?php the_title(); ?></h2>
+            <h4><?php the_excerpt() ?></h4>
+
         </div>
         </div>
         <div class="content-wrapp">
@@ -46,6 +46,7 @@ get_header(); ?>
 
     </main><!-- #main -->
 </div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+<div id="secondary" class="widget-area sidebar" role="complementary">
+    <?php dynamic_sidebar( 'sidebar-6' ); ?>
+</div>
 <?php get_footer(); ?>

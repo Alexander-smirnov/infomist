@@ -7,48 +7,39 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<div id="primary" class="content-area single-news">
+		<main id="main" class="site-main " role="main">
             <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
-            <?php
-            $args = array(
-                'post_parent' => 103,
-                'post_type' => 'page',
-                'paged' => $paged,
-            );
-            $subpages = new WP_query($args);
-            if ($subpages->have_posts()) :
-                $output = '<ul class="menu-event-wrapp">';
-
-                while ($subpages->have_posts()) : $subpages->the_post();
-                    $output .= '<li><div class="thumb"><a href="'.get_permalink().'">'.get_the_post_thumbnail().'</a></div>';
-                endwhile;
-                $output .= '</ul>';
-            endif;
-            echo $output;
-            wp_reset_postdata();
-            ?>
-		<?php while ( have_posts() ) : the_post(); ?>
-
-
             <div class="posts-info">
-                <?php the_post_thumbnail() ?>
+                <div class="time-post">
+                    <?php
+                        the_time('d/m/Y  |  G:i');
+                    ?>
+                </div>
+                 <?php while ( have_posts() ) : the_post(); ?>
                 <div class="author">
-                    <h2><?php the_title(); ?></h2>
-                    <div class="com">
-                        <span class="fa fa-eye"></span> <span class="top-post-pageview"> <?php the_pageview(); ?> </span>
-                        <span class="fa fa-comment-o"></span> <span class="number-of-comments"><?php comments_number('0', '1', '%'); ?></span>
-                    </div>
-                    <div class="data"><?php the_time('d F Y  |  G:i');?></div>
+                    <?php $author = get_the_author();?>
+                    <span class="label">Автор: </span>
+                    <span class="author-name"><?php echo $author; ?></span>
                 </div>
             </div>
-            <p><?php the_content(); ?></p>
+            <h1><?php the_title() ?></h1>
+<!--            --><?php //the_post_thumbnail() ?>
+            <div class="content-wrapp">
+                <?php the_content(); ?>
+            </div>
+<!--			--><?php //the_post_navigation(); ?>
+
+            <?php
+                wp_related_posts();
+            ?>
+            <div class="comments">
+                <span class="fa fa-comments-o"></span> <span class="number-of-comments">Коментарі: <?php comments_number('0', '1', '%'); ?></span>
+            </div>
 
 			<?php
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+                comments_template();
+
 			?>
 
 		<?php endwhile; // End of the loop. ?>
@@ -56,8 +47,7 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-
-
-
-<?php get_sidebar(); ?>
+<div id="secondary" class="widget-area sidebar" role="complementary">
+    <?php dynamic_sidebar( 'sidebar-4' ); ?>
+</div>
 <?php get_footer(); ?>

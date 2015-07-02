@@ -105,9 +105,9 @@ if ( ! function_exists( 'tribe_get_the_day_link_label' ) ) {
 			case null :
 				return __( 'Today', 'tribe-events-calendar' );
 			case 'previous day' :
-				return __( '<span>&laquo;</span> Previous Day', 'tribe-events-calendar' );
+				return __( '<span>&laquo;</span> Попередній день', 'tribe-events-calendar' );
 			case 'next day' :
-				return __( 'Next Day <span>&raquo;</span>', 'tribe-events-calendar' );
+				return __( 'Наступний день <span>&raquo;</span>', 'tribe-events-calendar' );
 			case 'yesterday' :
 				return __( 'Yesterday', 'tribe-events-calendar' );
 			case 'tomorrow' :

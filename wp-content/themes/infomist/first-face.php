@@ -50,8 +50,9 @@ get_header(); ?>
         <?php wp_reset_query(); ?>
     </main><!-- #main -->
 </div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+<div id="secondary2" class="widget-area sidebar" role="complementary">
+    <?php dynamic_sidebar( 'sidebar-4' ); ?>
+</div>
 <?php get_footer(); ?>
 
 

@@ -101,7 +101,7 @@ add_action( 'after_setup_theme', 'infomist_content_width', 0 );
  */
 function infomist_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'infomist' ),
+		'name'          => esc_html__( 'Голова сторінка права частина', 'infomist' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -110,17 +110,8 @@ function infomist_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
     register_sidebar( array(
-        'name'          => esc_html__( 'Sidebar2', 'infomist' ),
+        'name'          => esc_html__( 'Голова сторінка ліва частина', 'infomist' ),
         'id'            => 'sidebar-2',
-        'description'   => '',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</aside>',
-        'before_title'  => '<h1 class="widget-title">',
-        'after_title'   => '</h1>',
-    ) );
-    register_sidebar( array(
-        'name'          => esc_html__( 'Sidebar3', 'infomist' ),
-        'id'            => 'sidebar-3',
         'description'   => '',
         'before_widget' => '<aside id="%1$s" class="widget %2$s">',
         'after_widget'  => '</aside>',
@@ -144,6 +135,42 @@ function infomist_widgets_init() {
         'after_widget'  => '</div>',
         'before_title'  => '<div class="hot-phone">',
         'after_title'   => '</div>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Новини список', 'infomist' ),
+        'id'            => 'sidebar-3',
+        'description'   => '',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Новини одинична', 'infomist' ),
+        'id'            => 'sidebar-4',
+        'description'   => '',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Від першої особи ліва частина', 'infomist' ),
+        'id'            => 'sidebar-5',
+        'description'   => '',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
+    ) );
+    register_sidebar( array(
+        'name'          => esc_html__( 'Інтерв\'ю', 'infomist' ),
+        'id'            => 'sidebar-6',
+        'description'   => '',
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h1 class="widget-title">',
+        'after_title'   => '</h1>',
     ) );
 }
 add_action( 'widgets_init', 'infomist_widgets_init' );
@@ -524,5 +551,133 @@ $outputs .= '<h2 class="slide"><a href="'.get_permalink(179).'">ТЕМА ТИЖ�
 $outputs .= '</div>';
 $outputs .= '</div>';
       echo $outputs;
+    return $outputs;
+}
+
+function interview() {
+    $outputs = '';
+$outputs .= '<h1><a href="'. get_the_permalink(94).'">Інтерв\'ю</a></h1>';
+$wp_query = null;
+$wp_query = new WP_Query();
+$wp_query->query('cat=10'.'&showposts=3');
+    $outputs .= '<ul class="interview">';
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= ' <li class="single-news">';
+        $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
+            $name = get_the_title();
+            $whois = get_the_excerpt();
+        $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
+        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+        $outputs .= '</li>';
+endwhile;
+$outputs .= '</ul>';
+wp_reset_query();
+    echo $outputs;
+    return $outputs;
+}
+
+function first_face() {
+    $outputs = '';
+    $outputs .= '<h1><a href="'. get_the_permalink(88).'">Від першої особи</a></h1>';
+    $wp_query = null;
+    $wp_query = new WP_Query();
+    $wp_query->query('cat=9 '.'&showposts=2');
+    $outputs .= '<ul class="interview">';
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= '<li class="single-news">';
+        $outputs .= '<div class="time">'.get_wp_user_avatar($authordata->ID, 72, "left").'</div>';
+        $author = get_the_author();
+        $user_description = get_the_author_meta('description',$authordata->ID);
+        $outputs .= '<h2><a href="'. get_permalink().'">'.$author .'</a></h2>';
+        $outputs .= '<h4><a href="'. get_permalink().'">'.$user_description .'</a></h4>';
+        $outputs .= '</li>';
+endwhile;
+$outputs .= '</ul>';
+    echo $outputs;
+    return $outputs;
+}
+
+function summary() {
+    $outputs = '';
+    $outputs .= '<h1><a href="'. get_the_permalink(197).'">Дайджест</a></h1>';
+    $wp_query = null;
+    $wp_query = new WP_Query();
+    $wp_query->query('cat=20'.'&showposts=2');
+    $outputs .= '<ul class="interview">';
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= ' <li class="single-news">';
+        $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
+        $name = get_the_title();
+        $whois = get_the_excerpt();
+        $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
+        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+        $outputs .= '</li>';
+    endwhile;
+    $outputs .= '</ul>';
+    wp_reset_query();
+    echo $outputs;
+    return $outputs;
+}
+function networking() {
+    $outputs = '';
+    $outputs .= '<h1><a href="'. get_the_permalink(203).'">Обговорюють у мережі</a></h1>';
+    $wp_query = null;
+    $wp_query = new WP_Query();
+    $wp_query->query('cat=21'.'&showposts=2');
+    $outputs .= '<ul class="interview">';
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= ' <li class="single-news">';
+        $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
+        $name = get_the_title();
+        $whois = get_the_excerpt();
+        $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
+        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+        $outputs .= '</li>';
+    endwhile;
+    $outputs .= '</ul>';
+    wp_reset_query();
+    echo $outputs;
+    return $outputs;
+}
+function charity() {
+    $outputs = '';
+    $outputs .= '<h1><a href="'. get_the_permalink(209).'">Благодійність</a></h1>';
+    $wp_query = null;
+    $wp_query = new WP_Query();
+    $wp_query->query('cat=22'.'&showposts=2');
+    $outputs .= '<ul class="interview">';
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= ' <li class="single-news">';
+        $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
+        $name = get_the_title();
+        $whois = get_the_excerpt();
+        $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
+        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+        $outputs .= '</li>';
+    endwhile;
+    $outputs .= '</ul>';
+    wp_reset_query();
+    echo $outputs;
+    return $outputs;
+}
+function more_interview() {
+    $outputs = '';
+    $outputs .= '<h1><a href="'. get_the_permalink(94).'">Інтерв\'ю</a></h1>';
+    $wp_query = null;
+    $wp_query = new WP_Query();
+    $wp_query->query('cat=10'.'&showposts=4');
+    $outputs .= '<ul class="interview">';
+    while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
+        $outputs .= ' <li class="single-news">';
+        $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
+        $name = get_the_title();
+        $whois = get_the_excerpt();
+        $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
+        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+        $outputs .= '</li>';
+    endwhile;
+    $outputs .= '</ul>';
+    wp_reset_query();
+    echo $outputs;
     return $outputs;
 }

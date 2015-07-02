@@ -55,6 +55,6 @@ get_header(); ?>
     </div><!-- #primary -->
 
     <div id="secondary2" class="widget-area sidebar" role="complementary">
-        <?php dynamic_sidebar( 'sidebar-2' ); ?>
+        <?php dynamic_sidebar( 'sidebar-3' ); ?>
     </div>
 <?php get_footer(); ?>
