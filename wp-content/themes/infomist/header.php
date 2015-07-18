@@ -16,7 +16,12 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="icon" type="image/vnd.microsoft.icon" href="<?php echo get_stylesheet_directory_uri() ?>/images/fav.ico">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri() ?>/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.fancybox').fancybox();
+        });
+    </script>
 <?php wp_head(); ?>
 </head>
 
@@ -26,23 +31,29 @@
         <?php dynamic_sidebar( 'top-header' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
+            <span class="fa fa-align-justify"></span>
 			<div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/logo.png" alt="Logo"/></a></div>
             <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/title.png" alt="Logo"/></a></h1>
 		</div><!-- .site-branding -->
         <ul class="social">
             <li class="facebook">
-                <a href="#">
+                <a href="https://www.facebook.com/infomist.ck.ua">
                     <span class="fa fa-facebook"></span>
                 </a>
             </li>
             <li class="vk">
-                <a href="#">
+                <a href="https://vk.com/public97238909">
                     <span class="fa fa-bold"></span>
                 </a>
             </li>
             <li class="youtube">
-                <a href="#">
+                <a href="https://www.youtube.com/channel/UCie5GwjAmKUzPeeAJeU4ZNw">
                     <span class="fa fa-youtube"></span>
+                </a>
+            </li>
+            <li class="rss">
+                <a href="<?php get_home_url() ?>/?feed=news.yandex.ru">
+                    <span class="fa fa-rss"></span>
                 </a>
             </li>
         </ul>

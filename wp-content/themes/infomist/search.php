@@ -4,42 +4,40 @@
  *
  * @package Infomist
  */
-
 get_header(); ?>
+    <section id="primary" class="content-area">
+        <main id="main" class="site-main" role="main">
+            <?php if ( have_posts() ) : ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+                <header class="page-header">
+                    <h1 class="page-title"><?php printf( esc_html__( 'Результати пошуку по запиту: %s', 'infomist' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+                </header><!-- .page-header -->
 
-		<?php if ( have_posts() ) : ?>
+                <?php /* Start the Loop */ ?>
+                <?php while ( have_posts() ) : the_post(); ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'infomist' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-			</header><!-- .page-header -->
+                    <?php
+                    /**
+                     * Run the loop for the search to output the results.
+                     * If you want to overload this in a child theme then include a file
+                     * called content-search.php and that will be used instead.
+                     */
+                    get_template_part( 'template-parts/content', 'search' );
+                    ?>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+                <?php endwhile; ?>
 
-				<?php
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
-				?>
+            <?php else : ?>
 
-			<?php endwhile; ?>
+                <?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-			<?php the_posts_navigation(); ?>
+            <?php endif; ?>
 
-		<?php else : ?>
+        </main><!-- #main -->
 
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+    </section><!-- #primary -->
 
-		<?php endif; ?>
-
-		</main><!-- #main -->
-	</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
+    <div id="secondary" class="widget-area sidebar" role="complementary">
+        <?php dynamic_sidebar( 'sidebar-4' ); ?>
+    </div>
 <?php get_footer(); ?>

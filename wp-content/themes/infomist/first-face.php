@@ -13,7 +13,7 @@ get_header(); ?>
         if ($title == 'Інтерв’ю') {$temp = 10;}
         $wp_query = null;
         $wp_query = new WP_Query();
-        $wp_query->query('cat='.$temp.'&showposts=3'.'&paged='.$paged);
+        $wp_query->query('cat='.$temp.'&showposts=9'.'&paged='.$paged);
         ?>
         <ul class="interview-list">
             <?php while ( $wp_query -> have_posts() ) : $wp_query -> the_post(); ?>
@@ -50,7 +50,7 @@ get_header(); ?>
         <?php wp_reset_query(); ?>
     </main><!-- #main -->
 </div><!-- #primary -->
-<div id="secondary2" class="widget-area sidebar" role="complementary">
+<div id="secondary" class="widget-area sidebar" role="complementary">
     <?php dynamic_sidebar( 'sidebar-4' ); ?>
 </div>
 <?php get_footer(); ?>

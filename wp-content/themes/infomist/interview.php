@@ -13,7 +13,7 @@ get_header(); ?>
         if ($title == 'Інтерв’ю') {$temp = 10;}
         $wp_query = null;
         $wp_query = new WP_Query();
-        $wp_query->query('cat='.$temp.'&showposts=3'.'&paged='.$paged);
+        $wp_query->query('cat='.$temp.'&showposts=9'.'&paged='.$paged);
         ?>
         <ul class="interview-list">
             <?php while ( $wp_query -> have_posts() ) : $wp_query -> the_post(); ?>
@@ -24,8 +24,6 @@ get_header(); ?>
                         $whois = get_post_custom_values('whois');
                         $name = get_post_custom_values('name');
                         ?>
-                        <h2><?php echo $name[0] ?></h2>
-                        <h4><?php echo $whois[0] ?></h4>
                         <h1><?php the_title() ?></h1>
                     </a >
 
@@ -50,7 +48,7 @@ get_header(); ?>
     </main><!-- #main -->
 </div><!-- #primary -->
 
-<div id="secondary2" class="widget-area sidebar" role="complementary">
+<div id="secondary" class="widget-area sidebar" role="complementary">
     <?php dynamic_sidebar( 'sidebar-4' ); ?>
 </div>
 <?php get_footer(); ?>

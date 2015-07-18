@@ -13,7 +13,7 @@
         $temp = get_cat_ID($title);
         $wp_query = null;
         $wp_query = new WP_Query();
-        $wp_query->query('cat='.$temp.'&showposts=3'.'&paged='.$paged);
+        $wp_query->query('cat='.$temp.'&showposts=10'.'&paged='.$paged);
         ?>
         <ul class="all-news">
             <?php while ( $wp_query -> have_posts() ) : $wp_query -> the_post(); ?>

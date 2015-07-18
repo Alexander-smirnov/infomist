@@ -11,7 +11,7 @@
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'infomist' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Нічого не знайдено', 'infomist' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">
@@ -21,13 +21,11 @@
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'infomist' ); ?></p>
-			<?php get_search_form(); ?>
+			<p><?php esc_html_e( 'Вибачте, але пошук не дав результатів.', 'infomist' ); ?></p>
 
 		<?php else : ?>
 
 			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'infomist' ); ?></p>
-			<?php get_search_form(); ?>
 
 		<?php endif; ?>
 	</div><!-- .page-content -->

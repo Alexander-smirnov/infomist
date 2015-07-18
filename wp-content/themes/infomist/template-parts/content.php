@@ -4,38 +4,26 @@
  *
  * @package Infomist
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
-		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php infomist_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+    <div class="entry-content">
+        <div class="single-news">
+            <a href="<?php the_permalink()?>">
+                <?php the_post_thumbnail() ?>
+            </a >
+            <div class="posts-info">
+                <?php the_time('d/m/Y  |  G:i');?>
+                <span class="fa fa-eye"></span> <span class="top-post-pageview"> <?php the_pageview(); ?> </span>
+                <span class="fa fa-comment-o"></span> <span class="number-of-comments"><?php comments_number('0', '1', '%'); ?></span>
+            </div>
 
-	<div class="entry-content">
-		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'infomist' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-		?>
+            <h2>
+                <a href="<?php the_permalink()?>"><?php the_title(); ?></a>
+            </h2>
+            <p><a href="<?php the_permalink()?>"><?php the_excerpt(); ?></a></p>
+        </div>
+    </div><!-- .entry-content -->
 
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'infomist' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php infomist_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

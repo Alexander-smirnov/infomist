@@ -221,7 +221,7 @@ function dimox_breadcrumbs() {
 
     /* === ОПЦИИ === */
     $text['home'] = 'Головна'; // текст ссылки "Главная"
-    $text['category'] = 'Архів рубрики "%s"'; // текст для страницы рубрики
+    $text['category'] = 'Архів "%s"'; // текст для страницы рубрики
     $text['search'] = 'Результати пошуку по запросу "%s"'; // текст для страницы с результатами поиска
     $text['tag'] = 'Нотатки з тегом "%s"'; // текст для страницы тега
     $text['author'] = 'Статті автора %s'; // текст для страницы автора
@@ -232,7 +232,7 @@ function dimox_breadcrumbs() {
     $delimiter = '\\'; // разделитель между "крошками"
     $delim_before = '<span class="divider">'; // тег перед разделителем
     $delim_after = '</span>'; // тег после разделителя
-    $show_home_link = 1; // 1 - показывать ссылку "Главная", 0 - не показывать
+    $show_home_link = 0; // 1 - показывать ссылку "Главная", 0 - не показывать
     $show_on_home = 0; // 1 - показывать "хлебные крошки" на главной странице, 0 - не показывать
     $show_title = 1; // 1 - показывать подсказку (title) для ссылок, 0 - не показывать
     $show_current = 1; // 1 - показывать название текущей страницы, 0 - не показывать
@@ -484,17 +484,16 @@ function news() {
 $outputs = '<h1><a href="'. get_the_permalink(30).'">Новини</a></h1>';
 $wp_query = null;
 $wp_query = new WP_Query();
-$wp_query->query("cat=3,-9,-10,-6,-15,-5"."&showposts=10");
+$wp_query->query("cat=79, -16, -22, -9, -20, -10, -21, -14, -6, -15, -5"."&showposts=10");
 $outputs .= '<ul class="all-news">';
     while ( $wp_query -> have_posts() ) : $wp_query -> the_post();
         $outputs .= '<li class="single-news">';
-
                 $today = date("j");
                 $post_date = get_the_time("d");
-                $time_post = get_the_time("G:i");
             if ($today == $post_date) {
-                $outputs .= '<div class="time">'.get_the_time("G:i").'</div>';
-            } else {
+                $outputs .= '<div class="time">'.get_the_time("H:i").'</div>';
+            }
+            else {
                 $outputs .= '<div class="time">'.get_the_time("d.m").'</div>';
             }
             $outputs .= '<p><a href="'.get_permalink().'">'.get_the_title().'</a></p>';
@@ -565,9 +564,9 @@ $wp_query->query('cat=10'.'&showposts=3');
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
             $name = get_the_title();
-            $whois = get_the_excerpt();
+//            $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
 endwhile;
 $outputs .= '</ul>';
@@ -587,7 +586,7 @@ function first_face() {
         $outputs .= '<li class="single-news">';
         $outputs .= '<div class="time">'.get_wp_user_avatar($authordata->ID, 72, "left").'</div>';
         $author = get_the_author();
-        $user_description = get_the_author_meta('description',$authordata->ID);
+        $user_description = get_the_title();
         $outputs .= '<h2><a href="'. get_permalink().'">'.$author .'</a></h2>';
         $outputs .= '<h4><a href="'. get_permalink().'">'.$user_description .'</a></h4>';
         $outputs .= '</li>';
@@ -608,9 +607,9 @@ function summary() {
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
         $name = get_the_title();
-        $whois = get_the_excerpt();
+//        $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
     endwhile;
     $outputs .= '</ul>';
@@ -629,9 +628,9 @@ function networking() {
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
         $name = get_the_title();
-        $whois = get_the_excerpt();
+//        $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
     endwhile;
     $outputs .= '</ul>';
@@ -650,9 +649,9 @@ function charity() {
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
         $name = get_the_title();
-        $whois = get_the_excerpt();
+//        $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
     endwhile;
     $outputs .= '</ul>';
@@ -671,9 +670,9 @@ function more_interview() {
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
         $name = get_the_title();
-        $whois = get_the_excerpt();
+//        $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
+//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
     endwhile;
     $outputs .= '</ul>';
@@ -681,3 +680,54 @@ function more_interview() {
     echo $outputs;
     return $outputs;
 }
+
+function custom_admin_css() {
+    print "<style>th#wpseo-focuskw, th#wpseo-metadesc, td.wpseo-metadesc, td.wpseo-focuskw  {display: none} th#title {width: 200px} th#wpseo-title {width: 150px} th#pv {width: 40px}</style>";
+}
+add_action('admin_head', 'custom_admin_css');
+
+add_action('wp_footer', 'add_google_analytics');
+function add_google_analytics() { ?>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-64836252-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+<?php }
+
+function fancybox() {
+    wp_register_script('jq', get_stylesheet_directory_uri() . '/fancybox/lib/jquery-1.10.1.min.js');
+    wp_enqueue_script('jq');
+    wp_register_script('fancybox', get_stylesheet_directory_uri() . '/fancybox/source/jquery.fancybox.js?v=2.1.5');
+    wp_enqueue_script('fancybox');
+}
+add_action( 'wp_enqueue_scripts', 'fancybox' );
+
+function evgmoskalenko_copyright() { ?>
+    <script>
+        document.oncopy = function () {
+            var bodyElement = document.body;
+            var selection = getSelection();
+            var href = document.location.href;
+            var copyright = "<br><br>Джерело: <a href='"+ href +"'> infomist.ck.ua </a><br>© infomist.ck.ua";
+            var text = selection + copyright;
+            var divElement = document.createElement('div');
+            divElement.style.position = 'absolute';
+            divElement.style.left = '-99999px';
+            divElement.innerHTML = text;
+            bodyElement.appendChild(divElement);
+            selection.selectAllChildren(divElement);
+            setTimeout(function() {
+                bodyElement.removeChild(divElement);
+            }, 0);
+        };
+    </script>
+<?php }
+add_action('wp_footer', 'evgmoskalenko_copyright', 95);
