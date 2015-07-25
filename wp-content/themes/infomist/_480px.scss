@@ -1,0 +1,68 @@
+@media (max-width: 480px) {
+  footer.site-footer ul.footcontent > li h3 span, footer.site-footer ul.footcontent > li h3 a {
+    border: none;
+  }
+  footer.site-footer ul.footcontent > li {
+    width: 100%;
+    margin: 0 5px 10px;
+    position: relative;
+    table {
+      position: absolute;
+      top: 125px;
+    }
+  }
+  .page-template-interview main .interview-list li, .page-template-first-face main .interview-list li {
+    max-width: 195px;
+  }
+  #secondary .widget_text ul.top-news .single-news p {
+    width: 80%;
+  }
+  #secondary .widget_text ul.all-news .single-news p {
+    width: 90%;
+  }
+  .hot-message .textwidget {
+    float: none;
+    margin: 0 auto;
+    text-align: right;
+  }
+  .hot-message .hot-phone {
+    display: none;
+  }
+  #masthead .site-title img {
+    top:60px;
+  }
+  .content-area {
+    padding-left: 0;
+  }
+  header .social {
+    display: none;
+  }
+  .home .tribe-events-nav-previous, .home .tribe-events-nav-next {
+    padding: 0;
+  }
+  .home .left-wrapp #secondary2, .single-post .left-wrapp #secondary2 {
+    width: 75%;
+  }
+  .content-area form textarea, .after-post form textarea {
+    max-width: 85%;
+  }
+  .single-post #secondary .widget_text ul.top-news .single-news p {
+    width: 82%;
+  }
+  .site-content .content-area .wp_rp_content .related_post.wp_rp li {
+    width: 230px !important;
+  }
+  .single-news .wp_rp_wrap li a img {
+    width: 230px !important;
+  }
+  .single-news .site-main > h1 {
+    line-height: 28px;
+    font-size: 21px;
+  }
+  .wrapper {
+    padding: 0;
+  }
+  .perl-wrapp, .widget_sp_image, #SinoptikInformer {
+    display: none!important;
+  }
+}

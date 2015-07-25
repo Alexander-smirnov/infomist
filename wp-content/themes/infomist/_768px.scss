@@ -1,0 +1,150 @@
+@media (max-width: 768px) {
+  #SinoptikInformer {
+    width: 255px!important;
+  }
+  .content-wrapp img {
+    width: 100%;
+    height: auto;
+  }
+  .widget_text ul li:hover p a, #secondary .textwidget ul li:hover p a {
+    font-size: 13px;
+  }
+  .widget_text ul.top-news li:hover p a, #secondary .textwidget ul.top-news li:hover p a {
+    font-size: 14px;
+  }
+  .fa-align-justify, .fa-times {
+    display: none;
+  }
+  .home .fa-align-justify, .fa-times {
+    display: inline;
+    font-size: 26px;
+    position: absolute;
+    left: 40px;
+    top: 10px;
+    color: #FFF;
+  }
+  .fa-times {
+    display: none;
+  }
+  .home {
+    #secondary2 {
+      display: none;
+      position: absolute;
+      background-color: #FFF;
+      top:50px;
+      z-index: 10;
+    }
+    .left-wrapp #primary.content-area {
+      margin-left: 0!important;
+      max-width: 450px;
+      width: 100%;
+    }
+    #secondary {
+      width: 36%;
+      max-width: 290px;
+    }
+    #secondary .widget_text ul li:hover p a {
+      font-size: 13px;
+    }
+  }
+ .page-template-interview {
+   #secondary {
+     width: 35%;
+     max-width: 370px;
+   }
+   .content-area.interview, .page-template-first-face .content-area.interview {
+     max-width: 455px;
+     margin: 0 5px 0 0 !important;
+   }
+   main .interview-list li {
+     max-width: 210px;
+   }
+ }
+  .page main .interview-list li:nth-child(3) {
+    clear: both;
+  }
+  .page .site-content .content-area {
+    margin-right: 5px;
+  }
+  .page-template-first-face, .page-template-all-news {
+    .site-content .content-area {
+      width: 62%;
+    }
+    #secondary, #secondary2 {
+      width: 37%;
+    }
+    main .interview-list li {
+      max-width: 205px;
+    }
+  }
+  .single-post .content-area.interview, .single-format-standard div.single-news, .content-area.default-page, .archive .content-area, .search .content-area {
+    max-width: 455px;
+    margin: 0 5px 0 0 !important;
+  }
+  .single-post #secondary, .events-archive #secondary2, .archive #secondary, .search #secondary, .archive #secondary2  {
+    width: 35%;
+  }
+  .interview .custom-interview {
+    clear: both;
+  }
+  .interview {
+    .posts-info {
+      text-align: center;
+      img {
+        float: none;
+      }
+      .custom-interview {
+        text-align: left;
+        .time-post {
+          text-align: center;
+        }
+      }
+    }
+  }
+  figure {
+    width: 100%!important;
+  }
+  .single-post .hiden_sidebar#secondary2 {
+    display: none;
+    position: absolute;
+    background-color: #FFF;
+    top:50px;
+    z-index: 10;
+    margin-top: 0;
+  }
+  .site-main.single-news.single-face {
+    .fa-align-justify, .fa-times {
+      display: inline;
+      font-size: 26px;
+      position: absolute;
+      left: 40px;
+      top: 10px;
+      color: #FFF;
+    }
+    .fa-times {
+      display: none;
+    }
+  }
+  .content-area form textarea, .after-post form textarea {
+    max-width: 385px;
+    height: 70px;
+  }
+  #secondary .widget_text ul.all-news li {
+    margin: 20px 0 20px 10px;
+  }
+  .single-post .two-side {
+    max-width: 455px !important;
+  }
+
+  .tribe-events-sub-nav li a {
+    padding: 10px 20px;
+    margin-bottom: 0;
+    display: inline-block;
+  }
+  .tribe-events-style-full #secondary2 .widget_text ul.all-news li p {
+    max-width: 190px;
+  }
+  .search .content-area h1.page-title {
+    line-height: 26px;
+  }
+}

@@ -1,0 +1,54 @@
+@media (max-width: 960px) {
+  .home {
+    .left-wrapp #secondary2 {
+      width: 260px;
+    }
+    .left-wrapp #primary {
+      max-width: 362px;
+    }
+  }
+  .page-template-interview, .page-template-first-face {
+    main .interview-list {
+      li {
+        max-width: 190px;
+      }
+    }
+    .content-area.interview {
+      max-width: 630px;
+      margin: 0 15px 0 0 !important;
+    }
+  }
+  .single-post .content-area.interview {
+    max-width: 610px;
+  }
+  .single-post .wp_rp_content .related_post.wp_rp li {
+    width: 190px !important;
+  }
+  .content-area form textarea {
+    max-width: 540px;
+  }
+  .single-post {
+    #secondary {
+      width: 29%;
+    }
+    .left-wrapp #secondary2 {
+      width: 230px;
+      margin-right: 0;
+    }
+    .left-wrapp #primary {
+      margin-right: 5px;
+    }
+ }
+  #secondary {
+    width: 30%;
+    max-width: 270px;
+    .widget_text ul.all-news .single-news, .widget_text ul.top-news .single-news {
+      width: 96%;
+      margin-right: 0;
+      p {
+        max-width: 190px;
+      }
+    }
+  }
+
+}

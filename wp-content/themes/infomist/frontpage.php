@@ -4,11 +4,13 @@
  */
 get_header(); ?>
 <div class="left-wrapp">
-    <div id="secondary2" class="widget-area sidebar" role="complementary">
+    <div id="secondary2" class="widget-area sidebar hiden_sidebar" role="complementary">
         <?php dynamic_sidebar( 'sidebar-2' ); ?>
     </div>
     <div id="primary" class="content-area">
         <main id="main" class="site-main" role="main">
+            <span class="fa fa-align-justify"></span>
+            <span class="fa fa-times"></span>
             <?php
             $home_sl_query = new WP_Query();
             $home_sl_query ->query('cat=16'.'&showposts=3');
@@ -96,9 +98,6 @@ get_header(); ?>
                  <?php tribe_show_month(); ?>
                 <?php  ?>
             </div>
-<!--            <div class="event-calendar">-->
-<!--                --><?php //tribe_show_month(); ?>
-<!--            </div>-->
         </main><!-- #main -->
     </div><!-- #primary -->
 
@@ -107,4 +106,16 @@ get_header(); ?>
 <div id="secondary" class="widget-area sidebar" role="complementary">
     <?php dynamic_sidebar( 'sidebar-1' ); ?>
 </div>
+    <div class="top-news-wrapp hidden_event">
+        <h2><a href="<?php echo get_home_url().'/events' ?>">Навігатор подій</a></h2>
+        <?php
+        $title = sprintf(
+            __( '%1$s %2$s', 'tribe-events-calendar' ),
+            $events_label_plural,
+            date_i18n( tribe_get_option( 'monthAndYearFormat', 'F Y' ), strtotime( tribe_get_month_view_date() ) )
+        );?>
+        <h5 class="today"><?php echo $title ?></h5>
+        <?php tribe_show_month(); ?>
+        <?php  ?>
+    </div>
 <?php get_footer(); ?>

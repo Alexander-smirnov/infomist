@@ -16,24 +16,16 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="icon" type="image/vnd.microsoft.icon" href="<?php echo get_stylesheet_directory_uri() ?>/images/fav.ico">
-    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri() ?>/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.fancybox').fancybox();
-        });
-    </script>
 <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
     <div class="wrapper">
         <?php dynamic_sidebar( 'top-header' ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
-            <span class="fa fa-align-justify"></span>
-			<div class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/logo.png" alt="Logo"/></a></div>
-            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/title.png" alt="Logo"/></a></h1>
+
+            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() ?>/images/logotype.png" alt="Logo"/></a></h1>
 		</div><!-- .site-branding -->
         <ul class="social">
             <li class="facebook">
@@ -76,5 +68,4 @@
         </script>
         <?php dynamic_sidebar( 'bottom-header' ); ?>
 	</header><!-- #masthead -->
-
 	<div id="content" class="site-content">

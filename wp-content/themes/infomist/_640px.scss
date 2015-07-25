@@ -1,0 +1,101 @@
+@media (max-width: 640px) {
+  .home .left-wrapp {
+    float: none;
+    #primary.content-area {
+      max-width: 100%;
+    }
+  }
+  .home #secondary, .site-content #secondary, .page-template-all-news #secondary2, .page-template-all-news #secondary2, .events-archive #secondary2 {
+    width: 100%;
+    max-width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  #secondary .widget_text ul.all-news .single-news p, #secondary .widget_text ul.top-news .single-news p {
+    width: 87%;
+    max-width: 91%;
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+  }
+  //#secondary .widget_text ul.top-news .single-news > p {
+  //  width: 87%;
+  //}
+  #SinoptikInformer {
+    margin: 0 auto;
+  }
+  .single-format-standard div.single-news, .page-template-first-face .site-content .content-area, .page-template-all-news .site-content .content-area, .page-template-interview .content-area.interview, .single-post .content-area.interview, .archive .content-area, .content-area.default-page {
+    width: 100%;
+    max-width: 640px;
+  }
+  .site-content .content-area .wp_rp_content .related_post.wp_rp {
+    text-align: center;
+    li {
+      width: 210px !important;
+      .wp_rp_title {
+        display: inline-block!important;
+      }
+      &:hover {
+        .wp_rp_title {
+          position: relative!important;
+        }
+      }
+    }
+  }
+  .content-area form textarea, .after-post form textarea {
+    max-width: 490px;
+  }
+  #content .widget-area.sidebar .widget_search {
+    form {
+      text-align: center;
+      .search-field {
+        width: 90%;
+      }
+    }
+  }
+  .single-post #secondary .widget_text ul.top-news .single-news p {
+    width: 87%;
+  }
+  .content-area .interview-list {
+    text-align: center;
+    li {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+    }
+  }
+  #secondary2 .widget_text ul.interview h2 a {
+    vertical-align: -webkit-baseline-middle;
+  }
+
+  footer.site-footer ul.footcontent > li .address .fa {
+    margin-left: 0;
+  }
+  footer.site-footer ul.footcontent > li ul li p {
+    padding-left: 10px;
+  }
+  .single-post .two-side {
+    max-width: 640px!important;
+
+  }
+  .single-post .left-wrapp #primary {
+    margin-right: 0;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  .hot-message .hot-phone {
+    max-width: 50%;
+  }
+  .tribe-events-style-full #secondary2 .widget_text ul.all-news li p {
+    max-width: 87%;
+  }
+  .home .hidden_event {
+    display: block;
+    background-color: #FFF;
+  }
+  .home main > div:last-child {
+    display: none;
+  }
+}

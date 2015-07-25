@@ -9,12 +9,13 @@ get_header(); ?>
 <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
 <div class="left-wrapp">
 
-    <div id="secondary2" class="widget-area sidebar" role="complementary">
+    <div id="secondary2" class="widget-area sidebar hiden_sidebar" role="complementary">
         <?php dynamic_sidebar( 'sidebar-5' ); ?>
     </div>
     <div id="primary" class="content-area two-side">
         <main id="main" class="site-main single-news single-face" role="main">
-
+            <span class="fa fa-align-justify"></span>
+            <span class="fa fa-times"></span>
             <div class="posts-info">
                 <?php while ( have_posts() ) : the_post(); ?>
                 <div class="author">
@@ -36,6 +37,7 @@ get_header(); ?>
     </div><!-- #primary -->
     <div class="after-post">
         <h2>Всі статті автора: <?php echo $author ?></h2>
+<!--        --><?php //var_dump($author); ?>
         <?php echo do_shortcode('[latestbyauthor author="'.$author. '"show="5"]'); ?>
         <div class="comments">
             <span class="fa fa-comments-o"></span> <span class="number-of-comments">Коментарі: <?php comments_number('0', '1', '%'); ?></span>

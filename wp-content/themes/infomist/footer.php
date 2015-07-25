@@ -97,27 +97,6 @@
                 </ul>
             </li>
         </ul>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(window).load(function() {
-                    $('.flexslider').flexslider({
-                        animation: "slide",
-                        directionNav: true,
-                        animationLoop: true,
-                        controlNav: "thumbnails",
-                        start: function(slider){
-                            $('.flexslider').resize();
-                        }
-                    });
-                });
-            });
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('.fancybox').fancybox();
-            });
-        </script>
 	</footer><!-- #colophon -->
 </div><!-- .wrapper -->
 </div><!-- #page -->

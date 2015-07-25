@@ -14,44 +14,22 @@ if ( ! function_exists( 'infomist_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function infomist_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Infomist, use a find and replace
-	 * to change 'infomist' to the name of your theme in all the template files
-	 */
+
 	load_theme_textdomain( 'infomist', get_template_directory() . '/languages' );
 
-	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
 	add_theme_support( 'title-tag' );
 
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
+
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Footer Menu'),
         'news_menu' => esc_html__( 'Меню новин'),
         'events_menu' => esc_html__( 'Меню подій'),
 	) );
 
-
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
 	add_theme_support( 'html5', array(
 		'search-form',
 		'comment-form',
@@ -59,11 +37,6 @@ function infomist_setup() {
 		'gallery',
 		'caption',
 	) );
-
-	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
 	add_theme_support( 'post-formats', array(
 		'aside',
 		'image',
@@ -72,13 +45,12 @@ function infomist_setup() {
 		'link',
 	) );
 
-	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'infomist_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
-endif; // infomist_setup
+endif;
 
 add_action( 'after_setup_theme', 'infomist_setup' );
 
@@ -228,7 +200,6 @@ function dimox_breadcrumbs() {
     $text['404'] = 'Помилка 404'; // текст для страницы 404
     $text['page'] = 'Сторінка %s'; // текст 'Страница N'
     $text['cpage'] = 'Сторінка коментарів %s'; // текст 'Страница комментариев N'
-
     $delimiter = '\\'; // разделитель между "крошками"
     $delim_before = '<span class="divider">'; // тег перед разделителем
     $delim_after = '</span>'; // тег после разделителя
@@ -318,7 +289,6 @@ function dimox_breadcrumbs() {
                 }
             }
 
-            // custom post type
         } elseif ( !is_single() && !is_page() && get_post_type() != 'post' && !is_404() ) {
             $post_type = get_post_type_object(get_post_type());
             if ( get_query_var('paged') ) {
@@ -383,7 +353,7 @@ function dimox_breadcrumbs() {
         echo '</div><!-- .breadcrumbs -->';
 
     }
-} // end dimox_breadcrumbs()
+}
 
 add_action('wp','es_pageviews');
 add_action('manage_posts_custom_column','display_pageviews_row',10,2);
@@ -414,34 +384,13 @@ function the_pageview() {
     $pv = get_post_meta($post->ID, '_pageviews', true);
     echo $pv ? $pv : 0;
 }
-function latest_posts_by_author($array) {
-    extract(shortcode_atts(array('author' => 'admin', 'show' => 5), $array));
-
-    global $wpdb;
-    $table = $wpdb->prefix . 'users';
-    $result = $wpdb->get_results('SELECT ID FROM '.$table.' WHERE user_login = "'.$author.'"');
-    $id = $result[0]->ID;
-    $table = $wpdb->prefix . 'posts';
-    $result = $wpdb->get_results('SELECT * FROM '.$table.' WHERE post_author = '.$id.' AND post_status = "publish" AND post_type = "post" ORDER BY post_date DESC');
-    $i = 0;
-    $html = '<ul>';
-    foreach ($result as $numpost) {
-        $html .= '<li><a href="'.$numpost->guid.'">'.$numpost->post_title.'</a></li>';
-        $i++;
-        if($i == $show){
-            break;
-        }
-    }
-    $html .= '</ul>';
-
-    return $html;
-}
-add_shortcode('latestbyauthor', 'latest_posts_by_author');
 
 function infomist_theme_scripts() {
     wp_enqueue_style('flexslider', get_template_directory_uri() . '/js/flexslider.css');
     wp_enqueue_script('flexslider-init', get_template_directory_uri() . '/js/flexslider-init.js', array('jquery'), null, false);
     wp_enqueue_script('flexslider', get_template_directory_uri() . '/js/jquery.flexslider-min.js', array('jquery'), null, true);
+    wp_register_script('jq', get_stylesheet_directory_uri() . '/fancybox/lib/jquery-1.10.1.min.js');
+    wp_enqueue_script('jq');
 }
 
 add_action('wp_enqueue_scripts', 'infomist_theme_scripts');
@@ -564,9 +513,7 @@ $wp_query->query('cat=10'.'&showposts=3');
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
             $name = get_the_title();
-//            $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
 endwhile;
 $outputs .= '</ul>';
@@ -607,9 +554,7 @@ function summary() {
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
         $name = get_the_title();
-//        $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
     endwhile;
     $outputs .= '</ul>';
@@ -628,9 +573,7 @@ function networking() {
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
         $name = get_the_title();
-//        $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
     endwhile;
     $outputs .= '</ul>';
@@ -649,9 +592,7 @@ function charity() {
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
         $name = get_the_title();
-//        $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
     endwhile;
     $outputs .= '</ul>';
@@ -670,9 +611,7 @@ function more_interview() {
         $outputs .= ' <li class="single-news">';
         $outputs .= '<div class="time">'. get_the_post_thumbnail().'</div>';
         $name = get_the_title();
-//        $whois = get_the_excerpt();
         $outputs .= '<h2><a href="'.get_permalink().'">'.$name.'</a></h2>';
-//        $outputs .= '<h4><a href="'.get_permalink().'">'.$whois.'</a></h4>';
         $outputs .= '</li>';
     endwhile;
     $outputs .= '</ul>';
@@ -703,10 +642,11 @@ function add_google_analytics() { ?>
 <?php }
 
 function fancybox() {
-    wp_register_script('jq', get_stylesheet_directory_uri() . '/fancybox/lib/jquery-1.10.1.min.js');
-    wp_enqueue_script('jq');
-    wp_register_script('fancybox', get_stylesheet_directory_uri() . '/fancybox/source/jquery.fancybox.js?v=2.1.5');
-    wp_enqueue_script('fancybox');
+
+    wp_enqueue_script('fancybox', get_stylesheet_directory_uri() . '/fancybox/source/jquery.fancybox.js', null, false);
+    wp_enqueue_style('fancy_style', get_stylesheet_directory_uri() . '/fancybox/source/jquery.fancybox.css', null, false);
+    wp_register_script('fancybox_sc', get_stylesheet_directory_uri() . '/js/scripts.js');
+    wp_enqueue_script('fancybox_sc');
 }
 add_action( 'wp_enqueue_scripts', 'fancybox' );
 
