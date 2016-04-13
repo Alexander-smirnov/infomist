@@ -148,9 +148,9 @@ class ButtonsScripts {
 				wp_enqueue_script('twitter_button_api_script', 'http://platform.twitter.com/widgets.js');
 			}
 
-			if(in_array('googlebuzz',$this->btnsort)) {
-				wp_enqueue_script('google_button_api_script', 'http://www.google.com/buzz/api/button.js');
-			}
+//			if(in_array('googlebuzz',$this->btnsort)) {
+//				wp_enqueue_script('google_button_api_script', 'http://www.google.com/buzz/api/button.js');
+//			}
 		}
 	}
 

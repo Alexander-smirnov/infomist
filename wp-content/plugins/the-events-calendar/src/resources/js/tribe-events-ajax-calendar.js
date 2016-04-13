@@ -398,7 +398,6 @@
 				return;
 			}
 
-			$( '.tribe-events-calendar' ).tribe_spin();
 			ts.pushcount = 0;
 			ts.ajax_running = true;
 

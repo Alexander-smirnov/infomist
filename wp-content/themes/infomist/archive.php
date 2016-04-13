@@ -43,6 +43,7 @@ get_header(); ?>
                 the_posts_pagination( array(
                     'mid_size' => 2,
                 ) );
+
                 ?>
 
             <?php else : ?>
@@ -55,6 +56,6 @@ get_header(); ?>
     </div><!-- #primary -->
 
     <div id="secondary" class="widget-area sidebar" role="complementary">
-        <?php dynamic_sidebar( 'sidebar-4' ); ?>
+        <?php dynamic_sidebar( 'sidebar-9' ); ?>
     </div>
 <?php get_footer(); ?>

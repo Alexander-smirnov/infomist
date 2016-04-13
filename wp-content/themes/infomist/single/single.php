@@ -6,9 +6,14 @@
  */
 
 get_header(); ?>
+<?php
 
+if (in_category(4020) ) {
+    include (TEMPLATEPATH . '/single/single-cat-apublish.php');
+} else {
+    ?>
 	<div id="primary" class="content-area single-news">
-		<main id="main" class="site-main " role="main">
+		<main id="main" class="site-main fff" role="main">
             <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
             <div class="posts-info">
                 <div class="time-post">
@@ -20,7 +25,8 @@ get_header(); ?>
                 <div class="author">
                     <?php $author = get_the_author();?>
                     <span class="label">Автор: </span>
-                    <span class="author-name"><?php echo $author; ?></span>
+
+                    <span class="author-name"><?php the_author_posts_link(); ?></span>
                 </div>
             </div>
             <h1><?php the_title() ?></h1>
@@ -50,4 +56,4 @@ get_header(); ?>
 <div id="secondary" class="widget-area sidebar" role="complementary">
     <?php dynamic_sidebar( 'sidebar-4' ); ?>
 </div>
-<?php get_footer(); ?>
+<?php } get_footer(); ?>

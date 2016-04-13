@@ -9,9 +9,15 @@ get_header(); ?>
         <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
         <ul class="about">
             <li>
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/images/shchepak.jpg" alt="Єлєна Щепак"/>
+                <h2>Єлєна Щепак</h2>
+                <h3>головний редактор</h3>
+                <h4><a href="mailto:shchepak_elena@ukr.net">shchepak_elena@ukr.net</a></h4>
+            </li>
+            <li>
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/images/gavrilyan.jpg" alt="Марія Гаврилян"/>
                 <h2>Марія Гаврилян</h2>
-                <h3>головний редактор</h3>
+                <h3>кореспондент</h3>
                 <h4><a href="mailto:maria.gavrilyan@gmail.com">maria.gavrilyan@gmail.com</a></h4>
             </li>
             <li>

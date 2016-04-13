@@ -47,12 +47,17 @@
       font-size: 13px;
     }
   }
+  .single-format-standard .content-area.single-news {
+    max-width: 455px;
+    margin: 0 5px 0 0 !important;
+  }
  .page-template-interview {
    #secondary {
      width: 35%;
      max-width: 370px;
    }
-   .content-area.interview, .page-template-first-face .content-area.interview {
+
+   .content-area.interview, .page-template-first-face .content-area.interview, .content-area.single-news {
      max-width: 455px;
      margin: 0 5px 0 0 !important;
    }
@@ -146,5 +151,30 @@
   }
   .search .content-area h1.page-title {
     line-height: 26px;
+  }
+  .after-post {
+    max-width: 455px;
+  }
+  form .comment-form-author input {
+    width: 86.5%;
+  }
+  .commentlist .comment .children .comment-content {
+    width: 84%;
+  }
+  .commentlist .comment .children {
+    width: 90%;
+  }
+  .even-hov {
+    bottom: 460px;
+    right: 85px;
+  }
+
+  .projects-list.slides .list {
+    margin: 0 20px!important;
+  }
+
+  .page-template-kitchen .site-content .content-area {
+    padding-right: 10px;
+    width: 100%;
   }
 }

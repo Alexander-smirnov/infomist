@@ -34,11 +34,11 @@
     }
   }
   iframe {
-    width: 360px!important;
-    height: auto!important;
+    width: 100%!important;
+    height: 200px!important;
     @media (max-width: 320px) {
       width: 320px!important;
-      height: auto!important;
+      height: 175px!important;
     }
   }
   .content-area form textarea, .after-post form textarea {
@@ -64,5 +64,53 @@
   .tribe-events-event-image img {
     width: 100%!important;
     height: auto;
+  }
+  form .comment-form-author input {
+    width: 79%;
+  }
+  .commentlist .comment .children .comment-content {
+    width: 77.9%;
+  }
+  .left-wrapp .comment-content {
+    width: 80%;
+  }
+  form .comment-form-author input {
+    width: 79.5%;
+  }
+  .page-template-projects .site-content .content-area .projects-list.slides .list {
+    max-width: 100%;
+    margin: 0 25px 0 0 !important;
+    width: 335px !important;
+  }
+}
+@media (max-width: 320px) {
+  form .comment-form-author input {
+    width: 78%;
+  }
+  .content-area form textarea, .after-post form textarea {
+    max-width: 78%;
+  }
+  .commentlist .comment .children .comment-content {
+    width: 75.9%;
+  }
+  form .comment-form-author input {
+    width: 74%;
+  }
+  .content-area form textarea, .after-post form textarea {
+    max-width: 74%;
+  }
+  .left-wrapp .comment-content {
+    width: 74%;
+  }
+  .commentlist .comment .children .comment-content {
+    width: 76%;
+  }
+  b.fn {
+    right: 20px;
+  }
+  .page-template-projects .site-content .content-area .projects-list.slides .list {
+    max-width: 100%;
+    margin: 0 25px 0 0 !important;
+    width: 295px !important;
   }
 }

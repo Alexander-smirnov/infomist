@@ -1,0 +1,7 @@
+            <div class="obj-wrapp">
+<a href="http://pvd.ck.ua/">
+                <video width="376" height="36" autoplay="autoplay" loop="loop">
+                    <source src="<?php echo get_stylesheet_directory_uri() ?>/oda.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+</a>
+            </div>

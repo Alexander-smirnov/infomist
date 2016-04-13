@@ -253,7 +253,6 @@
 				dbug && debug.time( 'Day View Ajax Timer' );
 				// @endif
 				$( te ).trigger( 'tribe_ev_ajaxStart' ).trigger( 'tribe_ev_dayView_AjaxStart' );
-				$( '#tribe-events-content .tribe-events-loop' ).tribe_spin();
 
 				$.post(
 					TribeCalendar.ajaxurl,

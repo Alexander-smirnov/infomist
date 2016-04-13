@@ -99,7 +99,7 @@ if ( ! class_exists( 'Tribe__Events__Template__Day' ) ) {
 						$post->timeslot = __( 'Протягом усього дня', 'tribe-events-calendar' );
 					} else {
 						if ( strtotime( tribe_get_start_date( $post->ID, true, Tribe__Events__Date_Utils::DBDATETIMEFORMAT ) ) < strtotime( $wp_query->get( 'start_date' ) ) ) {
-							$post->timeslot = __( 'Ongoing', 'tribe-events-calendar' );
+							$post->timeslot = __( 'Триває', 'tribe-events-calendar' );
 						} else {
 							$post->timeslot = tribe_get_start_date( $post, false, $time_format );
 						}
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Tribe__Events__Template__Day' ) ) {
 					if ( $post->timeslot == __( 'All Day', 'tribe-events-calendar' ) ) {
 						$all_day[$i] = $post;
 					} else {
-						if ( $post->timeslot == __( 'Ongoing', 'tribe-events-calendar' ) ) {
+						if ( $post->timeslot == __( 'Триває', 'tribe-events-calendar' ) ) {
 							$ongoing[$i] = $post;
 						} else {
 							$hourly[$i] = $post;

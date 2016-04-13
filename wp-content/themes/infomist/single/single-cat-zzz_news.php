@@ -7,8 +7,9 @@
 
 get_header(); ?>
 
+
 	<div id="primary" class="content-area single-news">
-		<main id="main" class="site-main " role="main">
+		<main id="main" class="site-main zzz" role="main">
             <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
             <div class="posts-info">
                 <div class="time-post">
@@ -24,12 +25,14 @@ get_header(); ?>
                 </div>
             </div>
             <h1><?php the_title() ?></h1>
-<!--            --><?php //the_post_thumbnail() ?>
             <div class="content-wrapp">
+<?php         if (in_category(566)){
+} ?>
                 <?php the_content(); ?>
             </div>
-<!--			--><?php //the_post_navigation(); ?>
-
+            <div class="banner-wrapper">
+            <?php dynamic_sidebar( 'sidebar-10' ); ?>
+            </div>
             <?php
                 wp_related_posts();
             ?>
@@ -50,4 +53,4 @@ get_header(); ?>
 <div id="secondary" class="widget-area sidebar" role="complementary">
     <?php dynamic_sidebar( 'sidebar-4' ); ?>
 </div>
-<?php get_footer(); ?>
+<?php  get_footer(); ?>

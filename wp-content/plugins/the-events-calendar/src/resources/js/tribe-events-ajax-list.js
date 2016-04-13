@@ -205,7 +205,6 @@
 					return;
 				}
 
-				$( '#tribe-events-content .tribe-events-loop' ).tribe_spin();
 
 				ts.params = $.param( ts.params );
 				ts.url_params = $.param( ts.url_params );

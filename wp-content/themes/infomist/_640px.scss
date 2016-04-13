@@ -5,6 +5,9 @@
       max-width: 100%;
     }
   }
+  .main-flexslider-container {
+    margin-top: 5px;
+  }
   .home #secondary, .site-content #secondary, .page-template-all-news #secondary2, .page-template-all-news #secondary2, .events-archive #secondary2 {
     width: 100%;
     max-width: 100%;
@@ -19,9 +22,6 @@
     display: inline-block;
     vertical-align: -webkit-baseline-middle;
   }
-  //#secondary .widget_text ul.top-news .single-news > p {
-  //  width: 87%;
-  //}
   #SinoptikInformer {
     margin: 0 auto;
   }
@@ -97,5 +97,36 @@
   }
   .home main > div:last-child {
     display: none;
+  }
+  .single-format-standard .content-area.single-news {
+    max-width: 100%;
+    padding: 0 5px!important;
+  }
+  .commentlist .comment .children .comment-content {
+    width: 87%;
+  }
+  .after-post {
+    max-width: 100%;
+    form textarea {
+      max-width: 495px;
+    }
+  }
+  .left-wrapp .comment-content {
+    width: 88.5%;
+  }
+  main .top-news-wrapp.event-info {
+    display: none;
+  }
+  .page-template-projects .site-content .content-area {
+    width: 100%;
+    .projects-list.slides .list {
+      margin: 0 42px!important;
+    }
+  }
+  #widget_sp_image-3 {
+    text-align: center;
+    img {
+      max-width: 50%!important;
+    }
   }
 }

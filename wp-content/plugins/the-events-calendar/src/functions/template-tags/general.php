@@ -1041,7 +1041,7 @@ if ( class_exists( 'Tribe__Events__Main' ) ) {
 		$date_without_year_format = tribe_get_date_format();
 		$date_with_year_format    = tribe_get_date_format( true );
 		$time_format              = get_option( 'time_format' );
-		$datetime_separator       = tribe_get_option( 'dateTimeSeparator', ' ' );
+		$datetime_separator       = tribe_get_option( 'dateTimeSeparator', ' - ' );
 		$time_range_separator     = tribe_get_option( 'timeRangeSeparator', ' - ' );
 		$microformatStartFormat   = tribe_get_start_date( $event, false, 'Y-m-dTh:i' );
 		$microformatEndFormat     = tribe_get_end_date( $event, false, 'Y-m-dTh:i' );

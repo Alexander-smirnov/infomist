@@ -15,19 +15,35 @@ get_header(); ?>
         $title = get_the_title();
         $temp = get_cat_ID($title);
         $wp_query = null;
-        $wp_query = new WP_Query();
-        $wp_query->query('cat='.$temp.'&showposts=10'.'&paged='.$paged);
+		 $args = array(
+       'posts_per_page' => 10,
+        'paged' => $paged,
+		'cat' => $temp,
+		'date_query' => array(
+        array(
+            'column' => 'post_date_gmt',
+            'after'  => '10 days ago',
+        )
+),
+   );
+        $wp_query = new WP_Query($args);
+ //       $wp_query->query('cat='.$temp.'&showposts=10'.'&paged='.$paged);
+
         ?>
         <ul class="all-news">
 
             <?php while ( $wp_query -> have_posts() ) : $wp_query -> the_post(); ?>
                 <li class="single-news">
+
                     <a href="<?php the_permalink()?>">
                         <?php the_post_thumbnail() ?>
                     </a >
                     <div class="posts-info">
                         <?php the_time('d/m/Y  |  G:i');?>
-                        <span class="fa fa-eye"></span> <span class="top-post-pageview"> <?php the_pageview(); ?> </span>
+                        <?php $count = get_post_meta($post->ID, '_pageviews', true); ?>
+                        <span class="fa fa-eye"></span> <span class="top-post-pageview">
+                            <?php the_pageview(); ?>
+                        </span>
                         <span class="fa fa-comment-o"></span> <span class="number-of-comments"><?php comments_number('0', '1', '%'); ?></span>
                     </div>
 

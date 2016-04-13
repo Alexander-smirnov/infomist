@@ -6,7 +6,11 @@
  */
 
 get_header(); ?>
-
+<?php
+if (in_category(4020) ) {
+    include (TEMPLATEPATH . '/single/single-cat-apublish.php');
+} else {
+    ?>
 <div id="primary" class="content-area interview">
     <main id="main" class="site-main " role="main">
         <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
@@ -23,10 +27,9 @@ get_header(); ?>
                 $name = get_post_custom_values('name');
             ?>
             <h2><?php the_title(); ?></h2>
-            <h4><?php the_excerpt() ?></h4>
-
+            </div>
         </div>
-        </div>
+        <h4><?php the_excerpt(); ?></h4>
         <div class="content-wrapp">
             <?php the_content(); ?>
         </div>
@@ -49,4 +52,5 @@ get_header(); ?>
 <div id="secondary" class="widget-area sidebar" role="complementary">
     <?php dynamic_sidebar( 'sidebar-6' ); ?>
 </div>
-<?php get_footer(); ?>
+<?php}
+get_footer(); ?>

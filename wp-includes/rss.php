@@ -646,7 +646,7 @@ function init () {
 	}
 
 	if ( !defined('MAGPIE_CACHE_AGE') ) {
-		define('MAGPIE_CACHE_AGE', 60*60); // one hour
+		define('MAGPIE_CACHE_AGE', 0); // one hour
 	}
 
 	if ( !defined('MAGPIE_CACHE_FRESH_ONLY') ) {

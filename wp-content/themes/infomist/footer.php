@@ -25,18 +25,18 @@
                 <ul class="address">
                     <li class="adr">
                         <span class="fa fa-map-marker"></span>
-                        <p>вул. Б. Вишневецького, 47, к. 404</p>
+                        <p>бул. Шевченка, 242/1, каб. 206.</p>
                     </li>
                     <li class="tel">
                         <span class="fa fa-phone"></span>
 
-                        <p>+38 (097) 452 43 64</p>
+                        <p><a href="tel:0974524364">+38 (097) 452 43 64</a></p>
 
-                        <p> (0472) 50-11-20</p>
+                        <p><a href="tel:0472501120"> (0472) 50-11-20</a></p>
                     </li>
                     <li class="email">
                         <span class="fa fa-envelope-o"></span>
-                        <p>infomist@ukr.net</p>
+                        <p><a href="mailto:infomist@ukr.net">infomist@ukr.net</a></p>
                     </li>
                 </ul>
                 <!--bigmir)net TOP 100-->
@@ -94,13 +94,36 @@
                     <li>
                         <p><span>Designed by </span>K.Polishchuk</p>
                     </li>
+                    <li>
+                        <a href="http://www.i.ua/" target="_blank" onclick="this.href='http://i.ua/r.php?196461';" title="Rated by I.UA">
+                            <script type="text/javascript"><!--
+                                iS='http'+(window.location.protocol=='https:'?'s':'')+
+                                    '://r.i.ua/s?u196461&p66&n'+Math.random();
+                                iD=document;if(!iD.cookie)iD.cookie="b=b; path=/";if(iD.cookie)iS+='&c1';
+                                iS+='&d'+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)
+                                    +"&w"+screen.width+'&h'+screen.height;
+                                iT=iR=iD.referrer.replace(iP=/^[a-z]*:\/\//,'');iH=window.location.href.replace(iP,'');
+                                ((iI=iT.indexOf('/'))!=-1)?(iT=iT.substring(0,iI)):(iI=iT.length);
+                                if(iT!=iH.substring(0,iI))iS+='&f'+escape(iR);
+                                iS+='&r'+escape(iH);
+                                iD.write('<img src="'+iS+'" border="0" width="88" height="31" />');
+                                //--></script></a>
+                    </li>
                 </ul>
             </li>
         </ul>
 	</footer><!-- #colophon -->
 </div><!-- .wrapper -->
 </div><!-- #page -->
-
+<style>
+    .widget.widget_sp_image .widget-title {
+        color: #252525;
+        font-size: 8px;
+        text-align: center;
+        line-height: 8px;
+    }
+    .widget.widget_sp_image img {width: 100%;}
+</style>
 <?php wp_footer(); ?>
 
 </body>
